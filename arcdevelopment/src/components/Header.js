@@ -116,11 +116,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Header = () => {
-  const [tabValue, setTabValue] = useState(0)
+const Header = ({ tabValue, setTabValue, selectedIndex, setSelectedIndex}) => {
   const [anchorEl, setAnchorEl] = useState(null)
   const [openMenu, setOpenMenu] = useState(false)
-  const [selectedIndex, setSelectedIndex] = useState(0)
 
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
   const [openDrawer, setOpenDrawer] = useState(false)
@@ -186,7 +184,7 @@ const Header = () => {
           break
       }
     })
-  },[tabValue, menuOptions, selectedIndex, routes])
+  },[tabValue, menuOptions, selectedIndex, routes, setTabValue, setSelectedIndex])
 
   const tabs = (
     <React.Fragment>

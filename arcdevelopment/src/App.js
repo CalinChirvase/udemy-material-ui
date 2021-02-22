@@ -1,15 +1,24 @@
-import React from 'react'
-import { BrowserRouter, BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import React, { useState } from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { ThemeProvider } from '@material-ui/styles'
 import theme from './components/Theme'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 const App = () => {
+  const [tabValue, setTabValue] = useState(0)
+  const [selectedIndex, setSelectedIndex] = useState(0)
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-          <Header />
+          <Header
+            tabValue={tabValue}
+            setTabValue={setTabValue}
+            selectedIndex={selectedIndex}
+            setSelectedIndex={setSelectedIndex}
+          />
           <Switch>
             <Route exact path="/">
               <div>Home</div>
@@ -39,6 +48,12 @@ const App = () => {
               <div>Estimate</div>
             </Route>
           </Switch>
+          <Footer
+            tabValue={tabValue}
+            setTabValue={setTabValue}
+            selectedIndex={selectedIndex}
+            setSelectedIndex={setSelectedIndex}
+          />
       </BrowserRouter>
     </ThemeProvider>
   )
