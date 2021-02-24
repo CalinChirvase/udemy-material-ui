@@ -5,6 +5,7 @@ import { ThemeProvider } from '@material-ui/styles'
 import theme from './components/Theme'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import LandingPage from './components/LandingPage'
 
 const App = () => {
   const [tabValue, setTabValue] = useState(0)
@@ -21,7 +22,7 @@ const App = () => {
           />
           <Switch>
             <Route exact path="/">
-              <div>Home</div>
+              <LandingPage />
             </Route>
             <Route exact path="/services">
               <div>Services</div>
